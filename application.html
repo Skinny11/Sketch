@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salone Ducks — Apply</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>Salone Ducks</h1>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="application.html" class="active">Apply</a></li>
+            <li><a href="news.html">News</a></li>
+        </ul>
+        <div class="nav-clock" id="liveClock">
+            <span id="clockDisplay">Loading time...</span>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+</header>
+
+<div class="main-wrapper">
+
+    <!-- ===== PAGE HEADER ===== -->
+    <div class="page-header">
+        <h1>Apply for Documents</h1>
+        <p>Complete the form below. You'll receive an Application ID via email to track your application.</p>
+        <p class="page-header-note">⏱️ <strong>Note:</strong> You can update or delete your application within <strong>5 days</strong> of submission.</p>
+    </div>
+
+    <!-- ===== APPLICATION FORM + DASHBOARD ===== -->
+    <div class="portal-layout">
+
+        <!-- ===== FORM SECTION ===== -->
+        <div class="form-container">
+            <h2>📋 Application Form</h2>
+            <p>Fill in your details and select the document type.</p>
+
+            <form id="applicationForm">
+                <!-- Document Type Selection -->
+                <div class="form-group">
+                    <label for="documentType">Select Document Type:</label>
+                    <select id="documentType" required>
+                        <option value="" disabled selected>-- Choose an option --</option>
+                        <option value="National ID">National ID Card</option>
+                        <option value="Passport">National Passport</option>
+                        <option value="Drivers License">Driver's License</option>
+                    </select>
+                </div>
+
+                <!-- ===== COMMON FIELDS (All Documents) ===== -->
+                <div class="form-group">
+                    <label for="surname">Surname:</label>
+                    <input type="text" id="surname" placeholder="e.g. Koroma" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="givenNames">First Name:</label>
+                    <input type="text" id="givenNames" placeholder="e.g. Ishmael" required>
+                </div>
+
+                <div class="form-group" id="middleNameGroup">
+                    <label for="middleName">Middle Name (Optional):</label>
+                    <input type="text" id="middleName" placeholder="e.g. Mohamed (leave blank if none)">
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="sex">Sex:</label>
+                    <select id="sex" required>
+                        <option value="" disabled selected>-- Select --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" placeholder="e.g. 12 Main Street, Freetown" required>
+                </div>
+
+                <!-- ===== DOCUMENT-SPECIFIC FIELDS ===== -->
+                <!-- Nationality (for Passport only) -->
+                <div class="form-group doc-specific passport-fields" style="display:none;">
+                    <label for="nationality">Nationality:</label>
+                    <input type="text" id="nationality" placeholder="e.g. Sierra Leonean">
+                </div>
+
+                <!-- Place of Birth (for Passport only) -->
+                <div class="form-group doc-specific passport-fields" style="display:none;">
+                    <label for="placeOfBirth">Place of Birth:</label>
+                    <input type="text" id="placeOfBirth" placeholder="e.g. Freetown, Sierra Leone">
+                </div>
+
+                <!-- Holder's Signature (for Passport only) -->
+                <div class="form-group doc-specific passport-fields" style="display:none;">
+                    <label for="holderSignature">Holder's Signature (Full Name):</label>
+                    <input type="text" id="holderSignature" placeholder="e.g. Ishmael Koroma">
+                </div>
+
+                <!-- Photo Upload (All Documents) -->
+                <div class="form-group">
+                    <label for="photoUpload">Passport Picture Upload:</label>
+                    <input type="file" id="photoUpload" accept="image/*">
+                    <small style="color:#64748b; display:block; margin-top:5px;">Upload a recent passport-sized photo (JPG or PNG).</small>
+                </div>
+
+                <!-- ===== PHOTO SECTION (Camera) ===== -->
+                <div class="photo-section">
+                    <label>Live Identification Capture:</label>
+                    <div class="camera-box">
+                        <video id="video" autoplay playsinline style="display:none;"></video>
+                        <canvas id="canvas" style="display:none;"></canvas>
+                        <img id="photoPreview" alt="Captured Photo" style="display:none;">
+                        <div id="cameraPlaceholder" style="display:flex; flex-direction:column; align-items:center; color:#94a3b8; padding:20px;">
+                            <span style="font-size:3rem;">📷</span>
+                            <p>Click "Start Camera" to begin</p>
+                        </div>
+                    </div>
+                    <div class="photo-controls">
+                        <button type="button" id="startCameraBtn" class="btn-camera" onclick="startCamera()">📷 Start Camera</button>
+                        <button type="button" id="captureBtn" class="btn-camera primary" onclick="capturePhoto()" disabled>📸 Capture Photo</button>
+                        <button type="button" id="resetCameraBtn" class="btn-camera danger" onclick="resetCameraView()" style="display:none;">🔄 Retake</button>
+                    </div>
+                    <small style="color:#64748b; display:block; margin-top:5px;">Use your device's camera to capture a live photo.</small>
+                </div>
+
+                <!-- ===== SUBMIT BUTTON ===== -->
+                <button type="submit" id="submitBtn">Submit Application</button>
+            </form>
+
+            <div id="formSuccess" style="display:none; margin-top:20px; padding:20px; background:#d1fae5; border-radius:8px; border-left:4px solid #0a7a0a;">
+                <h3 style="color:#0a5a2a; margin:0;">✅ Application Submitted!</h3>
+                <p style="margin:10px 0 0 0; color:#0a4a2a;">Your Application ID: <strong id="displayAppId">XXXXXX</strong></p>
+                <p style="margin:5px 0 0 0; color:#0a4a2a;">Check your email for confirmation and payment details.</p>
+                <button onclick="window.location.reload()" style="margin-top:15px; width:auto; padding:10px 30px; background:#0a7a0a;">Start New Application</button>
+            </div>
+        </div>
+
+        <!-- ===== DASHBOARD SECTION ===== -->
+        <div class="dashboard-container">
+            <h2>📊 Application Preview</h2>
+            <p>Review your application details before submitting.</p>
+
+            <div id="applicationPreview">
+                <div class="preview-placeholder">
+                    <p style="color:#94a3b8; text-align:center; padding:30px 0;">Fill out the form to see a preview here.</p>
+                </div>
+
+                <div id="previewContent" style="display:none;">
+                    <div class="preview-document">
+                        <div class="preview-header">
+                            <span>Republic of Sierra Leone</span>
+                            <span id="previewDocType">National ID Card</span>
+                        </div>
+                        <div class="preview-body">
+                            <div class="preview-row">
+                                <span class="preview-label">Application ID:</span>
+                                <span class="preview-value" id="previewAppId">—</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="preview-label">Surname:</span>
+                                <span class="preview-value" id="previewSurname">—</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="preview-label">Given Names:</span>
+                                <span class="preview-value" id="previewGivenNames">—</span>
+                            </div>
+                            <div class="preview-row" id="previewMiddleRow">
+                                <span class="preview-label">Middle Name:</span>
+                                <span class="preview-value" id="previewMiddleName">—</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="preview-label">Date of Birth:</span>
+                                <span class="preview-value" id="previewDob">—</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="preview-label">Sex:</span>
+                                <span class="preview-value" id="previewSex">—</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="preview-label">Address:</span>
+                                <span class="preview-value" id="previewAddress">—</span>
+                            </div>
+                            <div class="preview-row doc-specific passport-fields" style="display:none;">
+                                <span class="preview-label">Nationality:</span>
+                                <span class="preview-value" id="previewNationality">—</span>
+                            </div>
+                            <div class="preview-row doc-specific passport-fields" style="display:none;">
+                                <span class="preview-label">Place of Birth:</span>
+                                <span class="preview-value" id="previewPlaceOfBirth">—</span>
+                            </div>
+                            <div class="preview-row doc-specific passport-fields" style="display:none;">
+                                <span class="preview-label">Holder's Signature:</span>
+                                <span class="preview-value" id="previewHolderSignature">—</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="preview-label">Photo:</span>
+                                <span class="preview-value" id="previewPhoto">—</span>
+                            </div>
+                        </div>
+                        <div class="preview-footer">
+                            <span>Date of Issue: <strong id="previewIssueDate">—</strong></span>
+                            <span>Expiry: <strong id="previewExpiryDate">—</strong></span>
+                        </div>
+                        <div class="preview-serial">
+                            <span>Serial: <strong id="previewSerial">—</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== APPLICATION TRACKER (For existing applications) ===== -->
+    <div class="info-section tracker-section">
+        <h2 class="section-title">Track Your Application</h2>
+        <p style="text-align:center; color:#4a5a4a;">Already applied? Enter your Application ID below to view, update, or delete your application.</p>
+        <div class="tracker-form">
+            <input type="text" id="trackerAppId" placeholder="Enter your Application ID (e.g. SLD-2026-001)" style="max-width:400px; display:inline-block; width:auto; flex:1;">
+            <button id="trackerBtn" style="width:auto; padding:12px 30px; display:inline-block;">Track</button>
+        </div>
+        <div id="trackerResult" style="display:none; margin-top:20px; padding:20px; background:#f8fafc; border-radius:8px;">
+            <!-- Dynamic content will be inserted here -->
+        </div>
+    </div>
+
+</div>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>Salone Ducks</h3>
+            <p>Your Gateway to National Documents & Services</p>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="application.html">Apply</a>
+            <a href="news.html">News</a>
+        </div>
+        <div class="footer-contact">
+            <p>📧 support@saloneducks.gov.sl</p>
+            <p>📞 +232 76 123 456</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Salone Ducks. Built for Sierra Leone.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

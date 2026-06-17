@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salone Ducks — Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>🇸🇱 Salone Ducks</h1>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="application.html">Apply</a></li>
+            <li><a href="news.html">News</a></li>
+        </ul>
+        <div class="nav-clock" id="liveClock">
+            <span id="clockDisplay">Loading time...</span>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+</header>
+
+<div class="main-wrapper">
+
+    <!-- ===== HERO SECTION — UPDATED ===== -->
+    <section class="hero">
+        <div class="hero-grid">
+            <!-- LEFT COLUMN: Content with green background -->
+            <div class="hero-content">
+                <h1>🇸🇱 Salone Ducks</h1>
+                <h2>Your Gateway to National Documents &amp; Services</h2>
+                <p>Apply for official documents online — no login required, no stress.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-label">Documents Issued</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">7 Days</span>
+                        <span class="stat-label">Avg Processing</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Service Centers</span>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="application.html" class="btn-primary">Apply Now →</a>
+                    <a href="news.html" class="btn-secondary">View News →</a>
+                </div>
+
+                <p class="hero-sub">🇸🇱 Built for Sierra Leoneans — by Sierra Leoneans</p>
+            </div>
+
+            <!-- RIGHT COLUMN: Image with NO background, just shadow + solid border -->
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    <!-- Replace the src with your actual hero image -->
+                    <img src="img/logo.jpg" alt="Salone Ducks Hero Image" class="hero-img">
+                    <!-- If you don't have an image yet, uncomment the line below and comment out the img tag above -->
+                    <!-- <span class="placeholder-icon">🪪</span> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="info-section">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Fill Application</h3>
+                <p>Complete the online form with your personal details. No login required.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Submit &amp; Get ID</h3>
+                <p>Receive your unique <strong>Application ID</strong> via email. Use it to track your application.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Track &amp; Update</h3>
+                <p>Use your Application ID to view, update, or delete your application within 5 days.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Collect Document</h3>
+                <p>Visit your nearest service center and pick up your document when ready.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== AVAILABLE DOCUMENTS ===== -->
+    <section class="info-section documents-section">
+        <h2 class="section-title">Available Documents</h2>
+        <div class="documents-grid">
+            <div class="doc-card">
+                <span class="doc-icon">🪪</span>
+                <h3>National ID Card</h3>
+                <p>Your primary identification for all official transactions. 5-year renewal.</p>
+                <span class="doc-badge paid">Free</span>
+                <span class="doc-time">7-14 days</span>
+                <a href="application.html?doc=id" class="doc-apply-btn">Apply Now</a>
+            </div>
+            <div class="doc-card">
+                <span class="doc-icon">🛂</span>
+                <h3>National Passport</h3>
+                <p>International travel document valid for 10 years. English &amp; French.</p>
+                <span class="doc-badge paid">Fee: Le 500</span>
+                <span class="doc-time">14-21 days</span>
+                <a href="application.html?doc=passport" class="doc-apply-btn">Apply Now</a>
+            </div>
+            <div class="doc-card">
+                <span class="doc-icon">🚗</span>
+                <h3>Driver's License</h3>
+                <p>License to operate motor vehicles. Minimum age: 18. 5-year renewal.</p>
+                <span class="doc-badge paid">Fee: Le 350</span>
+                <span class="doc-time">7-14 days</span>
+                <a href="application.html?doc=license" class="doc-apply-btn">Apply Now</a>
+            </div>
+        </div>
+        <p class="more-docs"><em>More document types coming soon — Birth Certificates, Affidavits, TIN &amp; more.</em></p>
+    </section>
+
+    <!-- ===== WHY USE SALONE DUCKS ===== -->
+    <section class="info-section benefits-section">
+        <h2 class="section-title">Why Use Salone Ducks?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <span class="benefit-icon">🚫</span>
+                <h3>No Login Required</h3>
+                <p>Apply without creating an account. Just fill the form and submit.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">🔑</span>
+                <h3>Application ID</h3>
+                <p>Get a unique ID to track, update, or delete your application within 5 days.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">📱</span>
+                <h3>Email Updates</h3>
+                <p>Receive email notifications with your Application ID, fee, and pickup info.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">🔒</span>
+                <h3>Secure &amp; Trusted</h3>
+                <p>Your data is protected. Applications processed by authorized officials.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">⏱️</span>
+                <h3>Faster Processing</h3>
+                <p>Reduced waiting times — get your documents in days, not weeks.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">📢</span>
+                <h3>News &amp; Job Alerts</h3>
+                <p>Subscribe to receive notifications about national news and government jobs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LATEST NEWS & UPDATES ===== -->
+    <section class="info-section news-preview-section">
+        <h2 class="section-title">Latest News &amp; Updates</h2>
+        <div class="news-preview-grid">
+            <div class="news-preview-card">
+                <span class="news-tag press">Press Release</span>
+                <h3>New Digital ID Card System Launched</h3>
+                <p>The government has announced a new digital ID card system rolling out next month.</p>
+                <span class="news-date">June 16, 2026</span>
+            </div>
+            <div class="news-preview-card">
+                <span class="news-tag holiday">Holiday</span>
+                <h3>Eid al-Fitr Holiday Announcement</h3>
+                <p>All government offices will be closed on June 20-21 in observance of Eid al-Fitr.</p>
+                <span class="news-date">June 15, 2026</span>
+            </div>
+            <div class="news-preview-card">
+                <span class="news-tag job">Job Vacancy</span>
+                <h3>Ministry of Health — 50 New Positions</h3>
+                <p>The Ministry of Health is hiring nurses, doctors, and administrative staff.</p>
+                <span class="news-date">June 14, 2026</span>
+            </div>
+        </div>
+        <div class="news-preview-actions">
+            <a href="news.html" class="btn-secondary">View All News →</a>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="info-section trust-section">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>Do I need to create an account to apply?</h4>
+                <p>No. Salone Ducks does not require login. You can apply as a guest.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What is an Application ID?</h4>
+                <p>A unique ID sent to your email after submission. Use it to view, update, or delete your application within 5 days.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I change my application after submitting?</h4>
+                <p>Yes, for 5 days after submission. After that, it's locked for processing.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How do I pay?</h4>
+                <p>Pay at any Orange Money or Afrimoney agent using the payment reference generated with your Application ID.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Where do I collect my document?</h4>
+                <p>You'll receive an email with the nearest service center location and pickup date.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is my data safe?</h4>
+                <p>Yes. All information is encrypted and handled by authorized officials only.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+</div>
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>🇸🇱 Salone Ducks</h3>
+                <p>Your Gateway to National Documents &amp; Services</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="application.html">Apply</a>
+                <a href="news.html">News</a>
+            </div>
+            <div class="footer-contact">
+                <p>📧 support@saloneducks.gov.sl</p>
+                <p>📞 +232 76 123 456</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Salone Ducks. Built for Sierra Leone.</p>
+        </div>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
