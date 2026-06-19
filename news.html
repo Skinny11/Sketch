@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salone Ducks — News & Updates</title>
+    <link rel="stylesheet" href="news.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>Salone Ducks</h1>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="application.html">Apply</a></li>
+            <li><a href="news.html" class="active">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-clock" id="liveClock">
+            <span id="clockDisplay">Loading time...</span>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+</header>
+
+<div class="main-wrapper">
+
+    <!-- ===== PAGE HEADER ===== -->
+    <div class="page-header">
+        <h1>📰 National News & Updates</h1>
+        <p>Stay informed about press releases, holiday announcements, and government job vacancies.</p>
+    </div>
+
+    <!-- ===== NEWS LAYOUT: Two Columns (News + Sidebar) ===== -->
+    <div class="news-layout">
+
+        <!-- ===== LEFT COLUMN: News Feed ===== -->
+        <div class="news-main">
+
+            <!-- Filter Tabs -->
+            <div class="filter-section">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All</button>
+                    <button class="filter-tab" data-filter="press">Press Releases</button>
+                    <button class="filter-tab" data-filter="holiday">Holidays</button>
+                    <button class="filter-tab" data-filter="job">Job Vacancies</button>
+                </div>
+            </div>
+
+            <!-- ===== NEWS FEED — CARDS 2 IN A ROW ===== -->
+            <div class="news-feed-section">
+                <div class="news-grid" id="newsGrid">
+
+                    <!-- News Card 1 -->
+                    <div class="news-card" data-type="press">
+                        <div class="news-card-image">
+                            <img src="img/news-id-card.jpg" alt="New Digital ID Card System">
+                            <span class="news-tag press">Press Release</span>
+                        </div>
+                        <div class="news-card-body">
+                            <h3>New Digital ID Card System Launched</h3>
+                            <p>The Government of Sierra Leone has announced a new digital ID card system to be rolled out next month. The system aims to modernize identification and reduce fraud.</p>
+                            <div class="news-card-footer">
+                                <span class="news-date">June 16, 2026</span>
+                                <span class="news-author">Ministry of Internal Affairs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Card 2 -->
+                    <div class="news-card" data-type="holiday">
+                        <div class="news-card-image">
+                            <img src="img/news-holiday.jpg" alt="Eid al-Fitr Holiday">
+                            <span class="news-tag holiday">Holiday</span>
+                        </div>
+                        <div class="news-card-body">
+                            <h3>Eid al-Fitr Holiday Announcement</h3>
+                            <p>All government offices will be closed on June 20-21, 2026, in observance of Eid al-Fitr. Citizens are advised to plan their document applications accordingly.</p>
+                            <div class="news-card-footer">
+                                <span class="news-date">June 15, 2026</span>
+                                <span class="news-author">Office of the President</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Card 3 -->
+                    <div class="news-card" data-type="job">
+                        <div class="news-card-image">
+                            <img src="img/news-health.jpg" alt="Ministry of Health Jobs">
+                            <span class="news-tag job">Job Vacancy</span>
+                        </div>
+                        <div class="news-card-body">
+                            <h3>Ministry of Health — 50 New Positions</h3>
+                            <p>The Ministry of Health is hiring 50 healthcare professionals including nurses, doctors, and administrative staff. Applications are open until July 15, 2026.</p>
+                            <div class="news-card-footer">
+                                <span class="news-date">June 14, 2026</span>
+                                <span class="news-author">Ministry of Health</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Card 4 -->
+                    <div class="news-card" data-type="press">
+                        <div class="news-card-image">
+                            <img src="img/news-passport.jpg" alt="New Passport Processing Center">
+                            <span class="news-tag press">Press Release</span>
+                        </div>
+                        <div class="news-card-body">
+                            <h3>New Passport Processing Center Opens in Bo</h3>
+                            <p>A new passport processing center has been opened in Bo to reduce wait times for citizens in the southern region. The center will serve Kenema, Bo, and surrounding districts.</p>
+                            <div class="news-card-footer">
+                                <span class="news-date">June 12, 2026</span>
+                                <span class="news-author">Ministry of Foreign Affairs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Card 5 -->
+                    <div class="news-card" data-type="holiday">
+                        <div class="news-card-image">
+                            <img src="img/news-independence.jpg" alt="Independence Day Celebrations">
+                            <span class="news-tag holiday">Holiday</span>
+                        </div>
+                        <div class="news-card-body">
+                            <h3>Independence Day Celebrations</h3>
+                            <p>Sierra Leone will celebrate its 65th Independence Day on April 27, 2026. National events will be held in Freetown and all district headquarters.</p>
+                            <div class="news-card-footer">
+                                <span class="news-date">April 20, 2026</span>
+                                <span class="news-author">Office of the President</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Card 6 -->
+                    <div class="news-card" data-type="job">
+                        <div class="news-card-image">
+                            <img src="img/news-education.jpg" alt="Teachers Recruitment">
+                            <span class="news-tag job">Job Vacancy</span>
+                        </div>
+                        <div class="news-card-body">
+                            <h3>Ministry of Education — Teachers Recruitment</h3>
+                            <p>The Ministry of Education is recruiting 200 primary and secondary school teachers across all districts. Qualified candidates are encouraged to apply before August 30, 2026.</p>
+                            <div class="news-card-footer">
+                                <span class="news-date">June 10, 2026</span>
+                                <span class="news-author">Ministry of Education</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== RIGHT COLUMN: Sidebar ===== -->
+        <div class="news-sidebar">
+
+            <!-- ===== SUBSCRIBE SECTION ===== -->
+            <div class="sidebar-widget subscribe-widget">
+                <h3>📬 Subscribe to Updates</h3>
+                <p>Get the latest news, holiday announcements, and job vacancies delivered straight to your inbox.</p>
+                <div class="subscribe-form">
+                    <input type="email" id="subscribeEmail" placeholder="Enter your email address" required>
+                    <button id="subscribeBtn">Subscribe</button>
+                </div>
+                <div id="subscribeMessage" style="display:none; margin-top:10px; padding:10px; border-radius:6px; text-align:center;"></div>
+            </div>
+
+            <!-- ===== FEATURED / WEATHER WIDGET ===== -->
+            <div class="sidebar-widget weather-widget">
+                <h3>☀️ Weather Update</h3>
+                <div class="weather-info">
+                    <div class="weather-temp">
+                        <span class="temp-icon">🌤️</span>
+                        <span class="temp-value" id="weatherTemp">28°C</span>
+                    </div>
+                    <div class="weather-details">
+                        <p><strong>Local Time:</strong> <span id="weatherTime">Loading...</span></p>
+                        <p><strong>Today:</strong> <span id="weatherToday">28°C</span></p>
+                        <p><strong>Wind:</strong> <span id="weatherWind">1 m/s</span></p>
+                    </div>
+                </div>
+                <p class="weather-source">Data by <a href="https://openweathermap.org" target="_blank">OpenWeatherMap.org</a></p>
+            </div>
+
+            <!-- ===== QUICK LINKS ===== -->
+            <div class="sidebar-widget quick-links-widget">
+                <h3>🔗 Quick Links</h3>
+                <ul class="quick-links">
+                    <li><a href="application.html">Apply for Documents</a></li>
+                    <li><a href="index.html#documents">Available Documents</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="index.html#contact">Contact Support</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===== WHY SALONE DUCKS — Full Width Section Below ===== -->
+    <div class="why-salone-section">
+        <h2 class="section-title">Why Salone Ducks?</h2>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">🚫</div>
+                <h3>No Login Required</h3>
+                <p>Apply without creating an account. Just fill the form and submit.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🔑</div>
+                <h3>Application ID</h3>
+                <p>Get a unique ID to track, update, or delete your application within 5 days.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">📱</div>
+                <h3>Email Updates</h3>
+                <p>Receive email notifications with your Application ID, fee, and pickup info.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🔒</div>
+                <h3>Secure &amp; Trusted</h3>
+                <p>Your data is protected. Applications processed by authorized officials.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">⏱️</div>
+                <h3>Faster Processing</h3>
+                <p>Reduced waiting times — get your documents in days, not weeks.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">📢</div>
+                <h3>News &amp; Job Alerts</h3>
+                <p>Subscribe to receive notifications about national news and government jobs.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>🇸🇱 Salone Ducks</h3>
+            <p>Your Gateway to National Documents & Services</p>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="application.html">Apply</a>
+            <a href="news.html">News</a>
+        </div>
+        <div class="footer-contact">
+            <p>📧 support@saloneducks.gov.sl</p>
+            <p>📞 +232 76 123 456</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Salone Ducks. Built for Sierra Leone.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
